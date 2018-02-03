@@ -1,0 +1,24 @@
+{
+  "name": "vueify-brunch",
+  "description": "Compiles single-file Vue components into Brunch.",
+  "version": "1.0.2",
+  "author": "Silvio Henrique Ferreira <shferreira@me.com>",
+  "license": "MIT",
+  "main": "index.js",
+  "dependencies": {
+    "vueify": "^9.4.1"
+  },
+  "keywords": [
+    "vue",
+    "brunch"
+  ],
+  "homepage": "https://github.com/shferreira/vueify-brunch",
+  "bugs": {
+    "url": "https://github.com/shferreira/vueify-brunch/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shferreira/vueify-brunch.git"
+  },
+  "devDependencies": {}
+}
