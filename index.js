@@ -1,23 +1,17 @@
-"use strict";
-
-const compiler = require("vueify").compiler;
+const {compiler} = require("vueify");
+const {promisify} = require("util");
 
 class BrunchPlugin {
   constructor(config) {
     this.config = config.plugins.vueify || {};
     this.config.extractCSS = true;
   }
-  compile(file) {
+  async compile({ data, path }) {
     var style = "";
     compiler.applyConfig(this.config);
     compiler.on("style", args => style += args.style);
-    return new Promise((resolve, reject) => {
-      compiler.compile(file.data, file.path, (error, result) => {
-        if (error)
-          return reject(error);
-        return resolve({ data: result, cssExports: style });
-      });
-    });
+    const result = await promisify(compiler.compile)(data, path);
+    return { data: result, cssExports: style };
   }
 }
 
